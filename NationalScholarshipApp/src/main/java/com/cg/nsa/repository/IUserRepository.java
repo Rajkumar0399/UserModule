@@ -6,12 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.nsa.entity.User;
 
+import antlr.collections.List;
+
 @Repository
 //@EnableJpaRepositories
 public interface IUserRepository extends JpaRepository<User, Integer>
 {
 
 	//User login(User user);
+	 User findByUserId(String user);
+		
 	
     //	User logout(User user);
 }

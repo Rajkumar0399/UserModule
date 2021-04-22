@@ -17,12 +17,14 @@ public class User
 	private String userId;
 	private String password;
 	private String role;
+	private boolean loggedin;
 	
-	public User(String userId, String password, String role) {
+	public User(String userId, String password, String role, boolean loggedin) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.role = role;
+		this.loggedin=false;
 	}
 
 	public User() {
@@ -52,8 +54,20 @@ public class User
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-	@Override
+	public void login()
+	{
+		this.loggedin=true;
+	}
+     public boolean isLogin()
+     {
+    	 return this.loggedin;
+    	 
+     }
+     public void logout()
+ 	{
+ 		this.loggedin=false;
+ 	}
+     
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", role=" + role + "]";
 	}
