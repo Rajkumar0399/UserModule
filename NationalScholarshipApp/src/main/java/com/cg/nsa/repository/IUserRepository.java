@@ -1,3 +1,12 @@
+/********************************************************
+ 
+ * @author Rajkumar V
+ * version: 1.0
+ * Description: This is the Repository Class.
+ * Created date: 22-04-2021
+ 
+ * ******************************************************
+ */
 package com.cg.nsa.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
