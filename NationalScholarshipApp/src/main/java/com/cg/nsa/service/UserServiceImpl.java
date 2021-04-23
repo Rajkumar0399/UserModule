@@ -11,7 +11,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User login(User user) throws InvalidCredentialsException {
            /** 
-            * throws exception for invalid user details
+            * throws exception for invalid user details.
             */
 		// TODO Auto-generated method stub
 	   User user1=dao.findByUserId(user.getUserId());// fetching the user id
@@ -22,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 	   user.getRole().equals(user1.getRole())) {
 		   user.login();// calling login function
 		   /**
-		    * displays message after login
+		    * displays message after login.
 		    */
 		   System.out.println("Successfully logged in");
 		   
@@ -40,7 +40,7 @@ public class UserServiceImpl implements IUserService {
 		{
 			user.logout();// calling logout function
 			/**
-			 * displays message after logout
+			 * displays message after logout.
 			 */
 			System.out.println("Successfully logged out");
 		}
