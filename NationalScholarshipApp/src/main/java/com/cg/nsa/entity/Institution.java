@@ -43,7 +43,7 @@ public class Institution extends User
 	}
 
 	public Institution(String userId, String password, String role) {
-		super(userId, password, role);
+		super(userId, password, role );
 	}
 	
 	public Institution() {

@@ -19,7 +19,7 @@ public class User
 	private String role;
 	private boolean loggedin;
 	
-	public User(String userId, String password, String role, boolean loggedin) {
+	public User(String userId, String password, String role) {
 		super();
 		this.userId = userId;
 		this.password = password;
