@@ -67,6 +67,8 @@ public class UserServiceImpl implements IUserService {
 			user1.logout();
 			//System.out.println("Successfully logged out");
 		}
+		else
+			   throw new InvalidCredentialsException();
 		return dao.save(user1);
 	}
 	

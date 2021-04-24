@@ -15,8 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+
 
 @Entity
 @Table(name="user10")
@@ -25,12 +27,15 @@ public class User
 {
 	@Id
 	@Column(name="userId")
+	@NotEmpty(message="userId cannot be empty")
 	private String userId;
 	
 	@Column(name="password")
+	@NotEmpty(message="password cannot be empty")
 	private String password;
 	
 	@Column(name="role")
+	@NotEmpty(message="Role cannot be empty")
 	private String role;
 	
 	private int loggedin;

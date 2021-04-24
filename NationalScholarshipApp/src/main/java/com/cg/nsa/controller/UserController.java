@@ -9,9 +9,14 @@
  */
 
 package com.cg.nsa.controller;
+import javax.validation.Valid;
+import java.util.List;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.nsa.entity.User;
 import com.cg.nsa.exception.InvalidCredentialsException;
+import com.cg.nsa.exception.ValidationException;
 import com.cg.nsa.service.IUserService;
+import org.springframework.validation.BindingResult;
 
 
 @RestController
@@ -39,14 +46,24 @@ IUserService service;
  
  * ******************************************************
  */
-public ResponseEntity<String> login(@RequestBody User user){
+public ResponseEntity<String> login(@Valid @RequestBody User user,BindingResult bindingResult){
+	if(bindingResult.hasErrors())
+	{
+		List<FieldError> errors=bindingResult.getFieldErrors();		
+		List<String> errorList=new ArrayList<String>();
+		for(FieldError err:errors)
+		{
+			errorList.add(err.getDefaultMessage());
+		}
+		throw new ValidationException(errorList);
+	}
 	try {
 		service.login(user);
 		
-		return new ResponseEntity<String>("success", HttpStatus.OK);
+		return new ResponseEntity<String>("logged in", HttpStatus.OK);
 	}
 	catch(InvalidCredentialsException e){
-      throw new InvalidCredentialsException("Invalid Credentials");
+      throw new InvalidCredentialsException("login failed");
 	}
 	}
 
@@ -60,14 +77,24 @@ public ResponseEntity<String> login(@RequestBody User user){
  
  * ******************************************************
  */
-public ResponseEntity<String> logout(@RequestBody User user){
+public ResponseEntity<String> logout(@Valid @RequestBody User user,BindingResult bindingResult){
+	if(bindingResult.hasErrors())
+	{
+		List<FieldError> errors=bindingResult.getFieldErrors();		
+		List<String> errorList=new ArrayList<String>();
+		for(FieldError err:errors)
+		{
+			errorList.add(err.getDefaultMessage());
+		}
+		throw new ValidationException(errorList);
+	}
 	try {
 		service.logout(user);
 		
 		return new ResponseEntity<String>( "logged out",HttpStatus.OK);
 	}
 	catch(InvalidCredentialsException e){
-	      throw new InvalidCredentialsException("Invalid Credentials");
+	      throw new InvalidCredentialsException("logged out failed");
 		}
 }
 } 

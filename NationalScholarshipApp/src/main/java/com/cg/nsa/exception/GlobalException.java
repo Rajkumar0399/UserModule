@@ -28,7 +28,14 @@ public class GlobalException
 	{
 		return new ResponseEntity<Object>(exception.getMessage(),HttpStatus.NOT_FOUND);
 	}
+	/*
+	 * ValidationException
+	 */
 	
+	@ExceptionHandler(ValidationException.class)
+	public ResponseEntity<Object> handleException(ValidationException exception){
+		return new  ResponseEntity<Object> (exception.getMessages(),HttpStatus.BAD_REQUEST);
+	}
 	
 	
 }
