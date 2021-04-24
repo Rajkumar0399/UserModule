@@ -29,11 +29,11 @@ public class UserConfiguration {
 	
 	private ApiInfo metaData() {
 		    	  ApiInfo apiInfo = new ApiInfo(
-		                "Officer",
-		                "Officer details end points",
+		                "User",
+		                "User details end points",
 		                "1.0",
 		                "Terms of service",
-		                new Contact("Sneha Todurkar", "", "todurkar.sneha@gmail.com"),
+		                new Contact("Rajkumar", "", "vadakapuram.raj@gmail.com"),
 		               "Apache License Version 2.0",
 		                "https://www.apache.org/licenses/LICENSE-2.0");
 		        return apiInfo;

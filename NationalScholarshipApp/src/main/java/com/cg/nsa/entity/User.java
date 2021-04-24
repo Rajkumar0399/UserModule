@@ -1,5 +1,15 @@
+/********************************************************
+ 
+ * @author Rajkumar V
+ * version: 1.0
+ * Description: This is the user entity class 
+ * Created date: 20-04-2021
+ 
+ * ******************************************************
+ */
 package com.cg.nsa.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -14,9 +24,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class User 
 {
 	@Id
+	@Column(name="userId")
 	private String userId;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="role")
 	private String role;
+	
 	private int loggedin;
 	
 	public User(String userId, String password, String role) {
