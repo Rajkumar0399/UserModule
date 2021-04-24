@@ -30,11 +30,11 @@ public class UserController {
 @Autowired
 IUserService service;
 @GetMapping(value="/login")
-public ResponseEntity<User> login(@RequestBody User user) throws InvalidCredentialsException{
+public ResponseEntity<Object> login(@RequestBody User user){
 	
 	service.login(user);
 	
-	return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	return new ResponseEntity<Object>("success", HttpStatus.ACCEPTED);
 	}
 
 @GetMapping(value ="/logout")

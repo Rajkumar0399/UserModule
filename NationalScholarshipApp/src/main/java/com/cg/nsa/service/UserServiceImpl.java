@@ -9,12 +9,16 @@
  */
 package com.cg.nsa.service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.cg.nsa.repository.IUserRepository;
 import com.cg.nsa.entity.User;
 import com.cg.nsa.exception.InvalidCredentialsException;
 
+@Service
 public class UserServiceImpl implements IUserService {
 	@Autowired
+	
 	IUserRepository dao;
 	
 	/******************************************************
@@ -27,7 +31,7 @@ public class UserServiceImpl implements IUserService {
      */
 
 	@Override
-	public User login(User user) throws InvalidCredentialsException {
+	public User login(User user) {
           
 		// TODO Auto-generated method stub
 	   User user1=dao.findByUserId(user.getUserId());
@@ -58,7 +62,7 @@ public class UserServiceImpl implements IUserService {
 	public User logout(User user) {
 		// TODO Auto-generated method stub
 		User user1=dao.findByUserId(user.getUserId());
-		if(user.isLogin())
+		if(user.isLogin()==1)
 		{
 			user.logout();
 			System.out.println("Successfully logged out");

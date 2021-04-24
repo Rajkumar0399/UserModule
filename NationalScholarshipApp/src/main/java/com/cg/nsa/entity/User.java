@@ -17,14 +17,14 @@ public class User
 	private String userId;
 	private String password;
 	private String role;
-	private boolean loggedin;
+	private int loggedin;
 	
 	public User(String userId, String password, String role) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.role = role;
-		this.loggedin=false;
+		this.loggedin=0;
 	}
 
 	public User() {
@@ -56,16 +56,16 @@ public class User
 	}
 	public void login()
 	{
-		this.loggedin=true;
+		this.loggedin=1;
 	}
-     public boolean isLogin()
+     public int isLogin()
      {
     	 return this.loggedin;
     	 
      }
      public void logout()
  	{
- 		this.loggedin=false;
+ 		this.loggedin=0;
  	}
      
 	public String toString() {

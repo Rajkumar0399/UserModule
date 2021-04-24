@@ -9,7 +9,7 @@
  */
 package com.cg.nsa.exception;
 
-public class InvalidCredentialsException extends Exception {
+public class InvalidCredentialsException extends RuntimeException {
 
 	public InvalidCredentialsException() {
 		
