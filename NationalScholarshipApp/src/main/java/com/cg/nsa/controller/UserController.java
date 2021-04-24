@@ -30,6 +30,15 @@ public class UserController {
 @Autowired
 IUserService service;
 @GetMapping(value="/login")
+
+/********************************************************
+
+ * @param User 
+ * @return ResponseEntity 
+ * @return this method returns login method
+ 
+ * ******************************************************
+ */
 public ResponseEntity<Object> login(@RequestBody User user){
 	
 	service.login(user);
@@ -38,6 +47,15 @@ public ResponseEntity<Object> login(@RequestBody User user){
 	}
 
 @GetMapping(value ="/logout")
+
+/********************************************************
+
+ * @param User 
+ * @return ResponseEntity 
+ * @return this method returns logout method
+ 
+ * ******************************************************
+ */
 public ResponseEntity<User> logout(@RequestBody User user){
 	service.logout(user);
 	
