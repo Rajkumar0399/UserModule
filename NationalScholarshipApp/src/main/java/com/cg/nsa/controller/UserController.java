@@ -29,7 +29,7 @@ public class UserController {
 	
 @Autowired
 IUserService service;
-@GetMapping(value="/login")
+@PostMapping(value="/login")
 
 /********************************************************
 
@@ -39,14 +39,18 @@ IUserService service;
  
  * ******************************************************
  */
-public ResponseEntity<Object> login(@RequestBody User user){
-	
-	service.login(user);
-	
-	return new ResponseEntity<Object>("success", HttpStatus.ACCEPTED);
+public ResponseEntity<String> login(@RequestBody User user){
+	try {
+		service.login(user);
+		
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+	}
+	catch(InvalidCredentialsException e){
+      throw new InvalidCredentialsException("Invalid Credentials");
+	}
 	}
 
-@GetMapping(value ="/logout")
+@PostMapping(value ="/logout")
 
 /********************************************************
 
@@ -56,9 +60,14 @@ public ResponseEntity<Object> login(@RequestBody User user){
  
  * ******************************************************
  */
-public ResponseEntity<User> logout(@RequestBody User user){
-	service.logout(user);
-	
-	return new ResponseEntity<>( HttpStatus.ACCEPTED);
+public ResponseEntity<String> logout(@RequestBody User user){
+	try {
+		service.logout(user);
+		
+		return new ResponseEntity<String>( "logged out",HttpStatus.OK);
+	}
+	catch(InvalidCredentialsException e){
+	      throw new InvalidCredentialsException("Invalid Credentials");
+		}
 }
 } 
