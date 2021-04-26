@@ -38,10 +38,7 @@ public class UserServiceImpl implements IUserService {
 	   if(user1!=null && user.getPassword().equals(user1.getPassword()) &&
 	   user.getRole().equals(user1.getRole())) {
 		   
-		
-		 user1.login();
-			   //System.out.println("Successfully logged in");
-		   //dao.save(user1);
+		   user1.login();
 		   return dao.save(user1);
 	   }
 	   else 
@@ -62,10 +59,11 @@ public class UserServiceImpl implements IUserService {
 	public User logout(User user) {
 		// TODO Auto-generated method stub
 		User user1=dao.findByUserId(user.getUserId());
+		
 		if(user1.isLogin()==1)
 		{
 			user1.logout();
-			//System.out.println("Successfully logged out");
+			
 		}
 		else
 			   throw new InvalidCredentialsException();

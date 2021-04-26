@@ -19,7 +19,4 @@ public class InvalidCredentialsException extends RuntimeException {
 		super(msg);
 		
 	}
-
-	
-
 }

@@ -76,18 +76,17 @@ public class User
 		this.role = role;
 	}
 	
-	
 	public int login()
 	{
 		return this.loggedin=1;
-		}
+	}
 	
-     public int isLogin()
-     {
-    	 return this.loggedin;
-    	 
-     }
-     public void logout()
+    public int isLogin()
+    {
+    	 return this.loggedin;	 
+    }
+    
+    public void logout()
  	{
  		this.loggedin=0;
  	}

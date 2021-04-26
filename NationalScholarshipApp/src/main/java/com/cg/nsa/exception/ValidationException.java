@@ -10,13 +10,11 @@ public class ValidationException extends RuntimeException {
 
 	public ValidationException()
 	{
-		
 	}
 	public ValidationException(List<String> messages) 
 	{
 		super();
 		this.messages = messages;
-
 	}
 
 	public List<String> getMessages() 

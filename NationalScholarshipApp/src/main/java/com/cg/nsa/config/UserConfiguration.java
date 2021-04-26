@@ -28,7 +28,7 @@ public class UserConfiguration {
 	
 	
 	private ApiInfo metaData() {
-		    	  ApiInfo apiInfo = new ApiInfo(
+		ApiInfo apiInfo = new ApiInfo(
 		                "User",
 		                "User details end points",
 		                "1.0",

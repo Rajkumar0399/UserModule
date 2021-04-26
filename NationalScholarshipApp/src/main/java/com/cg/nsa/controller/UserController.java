@@ -9,10 +9,10 @@
  */
 
 package com.cg.nsa.controller;
+
 import javax.validation.Valid;
 import java.util.List;
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,12 +59,11 @@ public ResponseEntity<String> login(@Valid @RequestBody User user,BindingResult 
 	}
 	try {
 		service.login(user);
-		
 		return new ResponseEntity<String>("logged in", HttpStatus.OK);
 	}
 	catch(InvalidCredentialsException e){
       throw new InvalidCredentialsException("login failed");
-	}
+		}
 	}
 
 @PostMapping(value ="/logout")
@@ -90,11 +89,10 @@ public ResponseEntity<String> logout(@Valid @RequestBody User user,BindingResult
 	}
 	try {
 		service.logout(user);
-		
 		return new ResponseEntity<String>( "logged out",HttpStatus.OK);
 	}
 	catch(InvalidCredentialsException e){
-	      throw new InvalidCredentialsException("logged out failed");
+	      throw new InvalidCredentialsException("logout failed");
 		}
-}
+	}
 } 
