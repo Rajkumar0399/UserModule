@@ -14,18 +14,30 @@ import com.cg.nsa.service.IUserService;
 class NationalScholarshipAppApplicationTests {
     @Autowired
     IUserService iuserservice;
-    @Test
-	void testlogin() {
-    	User user=new User("bca","kkk","student");
-    	assertEquals("bca",iuserservice.login(user).getUserId());
+    
+   @Test
+	void login() {
+    	User user=new User("300","bvrit","Institution");
+    	assertEquals("300",iuserservice.login(user).getUserId());
     	
-    	
-    	
-	}
+    	}
+   
+   @Test
+   	void testlogin() {
+   		User user=new User("800","bvrit","Institution");
+   		assertThrows(InvalidCredentialsException.class, ()->iuserservice.login(user));
+   	}
+   
     @Test
     void logout() {
-    	User user=new User("ram","ram1","student");
-    	assertThrows(InvalidCredentialsException.class, ()->iuserservice.logout("ram","ram1","student"));
+    	User user=new User("300","bvrit","Institution");
+    	assertEquals("300",iuserservice.logout(user).getUserId()); 	
+    }
+    
+    @Test
+    void testlogout() {
+    	User user=new User("500","kk","officer");
+    	assertThrows(InvalidCredentialsException.class, ()->iuserservice.logout(user));
     }
 
 }

@@ -10,5 +10,4 @@ public class NationalScholarshipAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NationalScholarshipAppApplication.class, args);
 	}
-
 }

@@ -10,6 +10,8 @@
 package com.cg.nsa.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cg.nsa.repository.IUserRepository;
 import com.cg.nsa.entity.User;
 import com.cg.nsa.exception.InvalidCredentialsException;
@@ -30,6 +32,7 @@ public class UserServiceImpl implements IUserService {
      */
 
 	@Override
+	@Transactional
 	public User login(User user) {
           
 		// TODO Auto-generated method stub
@@ -56,6 +59,7 @@ public class UserServiceImpl implements IUserService {
 
 
 	@Override
+	@Transactional
 	public User logout(User user) {
 		// TODO Auto-generated method stub
 		User user1=dao.findByUserId(user.getUserId());
