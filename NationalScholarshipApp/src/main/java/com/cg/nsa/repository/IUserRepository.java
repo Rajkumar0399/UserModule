@@ -15,8 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.cg.nsa.entity.User;
 import antlr.collections.List;
 
-@Repository
-//@EnableJpaRepositories
+//@Repository
 public interface IUserRepository extends JpaRepository<User, Integer>
 {
 	 User findByUserId(String user);
